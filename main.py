@@ -3,10 +3,31 @@
 # Lab 1
 # Problem 1
 # Put your solution here, make sure I can run it by running this file. Do not submit it commented out.
-
+def solution1():
+    my_list=[1, 5, 'apple', 20.5]
+    print(my_list[2])
+    my_list.append(10)
+    print(my_list)
+    my_list.remove(20.5)
+    print(my_list)
+    my_list.reverse()
+    print(my_list)
 # Problem 2
 # Put your solution here, make sure I can run it by running this file. Do not submit it commented out.
-
+def solution2():
+    person={
+        "name" : "John",
+        "age" : 30,
+        "job" : "teacher"
+    }
+    print(person.get("job"))
+    person.update({"city":"Paris"})
+    print(person)
+    person.pop('age')
+    print(person)
+    personList=list(person.items())
+    for i in range(len(personList)):
+        print(personList[i])
 # -----------------------------------------------------------------------------
 
 
@@ -34,7 +55,12 @@ def count_vowels(s: str) -> int:
     - int: The number of vowels in the string
     """
     # TODO: Implement this function
-    pass
+    vowels=0
+    letters=list(s.lower())
+    for i in range(len(letters)):
+        if letters[i] == "a" or letters[i] == 'e' or letters[i] == 'i' or letters[i] == 'o' or letters[i] == 'u':
+            vowels = vowels+1
+    return vowels
 
 
 # Unit Tests for count_vowels
@@ -64,7 +90,10 @@ def merge_lists(list1: list, list2: list) -> list:
     - list: A new sorted list containing all elements from list1 and list2
     """
     # TODO: Implement this function
-    pass
+    list1= list1 + list2
+    list1.sort()
+    return list1
+
 
 
 # Unit Tests for merge_lists
@@ -95,7 +124,12 @@ def word_lengths(words: list) -> list:
     - list: A list containing the lengths of the words
     """
     # TODO: Implement this function
-    pass
+    lengths=[]
+    for i in range(len(words)):
+        lengths.append(len(words[i]))
+    return lengths
+
+
 
 
 # Unit Tests for word_lengths
@@ -122,7 +156,7 @@ def reverse_string(s: str) -> str:
     - str: The reversed string
     """
     # TODO: Implement this function
-    pass
+    return s[::-1]
 
 
 # Unit Tests for reverse_string
@@ -151,8 +185,11 @@ def intersection(list1: list, list2: list) -> list:
     - list: The intersection of the two lists
     """
     # TODO: Implement this function
-    pass
-
+    intersection=[]
+    for i in list1:
+        if i in list2 and i not in intersection:
+            intersection.append(i)
+    return intersection
 
 # Unit Tests for intersection
 def test_intersection():
@@ -183,3 +220,4 @@ def test_suite():
 
 
 test_suite()
+
